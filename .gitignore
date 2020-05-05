@@ -97,3 +97,4 @@ sw.*
 
 # VSCODE
 /.vscode
+*:Zone.Identifier
