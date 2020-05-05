@@ -46,7 +46,7 @@ cargo run
 And then you can start adding new stuffs or editing what alredy exists!
 
 ### Production mode
-Running on production mode let's you generate the required to run the client and server only using Rocket.rs.
+Running on production mode let's you generate the client files and run the client and server only using Rocket.rs.
 ```sh
 cd client
 npm run generate
