@@ -1,0 +1,154 @@
+/*
+MIT License
+
+Copyright (c) 2017 - Present Jenil Gogari
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+*/
+// Overrides
+@if $bulmaswatch-import-font {
+  @import url(https://fonts.googleapis.com/css?family=Nunito+Sans&display=swap);
+}
+
+body {
+font-weight: 200;
+letter-spacing: 1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+text-transform: uppercase;
+letter-spacing: 3px;
+}
+
+.button {
+transition: all 200ms ease;
+text-transform: uppercase;
+font-weight: 700;
+
+&.is-active,
+&.is-focused,
+&:active,
+&:focus {
+  box-shadow: 0 0 0 2px rgba($button-focus-border-color, 0.25);
+}
+@each $name, $pair in $colors {
+  $color: nth($pair, 1);
+  $color-invert: nth($pair, 2);
+
+  &.is-#{$name} {
+    &.is-active,
+    &.is-focused,
+    &:active,
+    &:focus {
+      border-color: $color;
+      box-shadow: 0 0 0 2px rgba($color, 0.25);
+    }
+  }
+}
+}
+
+.button,
+.input,
+.pagination-ellipsis,
+.pagination-link,
+.pagination-next,
+.pagination-previous,
+.select,
+.select select,
+.textarea,
+.control.has-icons-left .icon,
+.control.has-icons-right .icon {
+height: 2.5em;
+}
+
+.input,
+.textarea {
+transition: all 200ms ease;
+box-shadow: none;
+}
+
+.progress,
+.tag {
+border-radius: $radius;
+}
+
+.card {
+box-shadow: 0 0 0 1px $grey-lighter;
+
+.card-header {
+  box-shadow: 0 1px 0 0 $grey-lighter;
+}
+}
+
+.navbar {
+.navbar-link,
+.navbar-item {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.has-dropdown .navbar-item {
+  text-transform: none;
+}
+
+strong {
+  color: $white;
+}
+
+@include touch {
+  .navbar-menu {
+    background-color: $primary;
+    border-radius: $radius;
+  }
+}
+}
+.hero {
+.navbar {
+  background-color: $navbar-background-color;
+}
+@each $name, $pair in $colors {
+  $color: nth($pair, 1);
+  $color-invert: nth($pair, 2);
+
+  &.is-#{$name} {
+    .navbar {
+      background-color: $color;
+    }
+  }
+}
+}
+
+.notification {
+@each $name, $pair in $colors {
+  $color: nth($pair, 1);
+  $color-invert: nth($pair, 2);
+
+  &.is-#{$name} {
+    a:not(.button) {
+      color: $color-invert;
+      text-decoration: underline;
+    }
+  }
+}
+}
